@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cabinet
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th class="text-center">Stock symbol</th>
+                    <th class="text-center">Share's name</th>
+                    <th class="text-center">Quantity of shares</th>
+                    <th class="text-center">Price per share</th>
+                    <th class="text-center">Total price</th>
+                </tr>
+            </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{row["symbol"]}}</td>
+                <td>{{row["name"]}}</td>
+                <td>{{row["share"]}}</td>
+                <td>{{row["price"]}}</td>
+                <td>{{row["sum"]|usd}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td><b>Cash balance</b></td><td></td><td></td><td></td><td></td><td><b>{{t_cash}}</b></td>
+            </tr>
+            <tr>
+                <td><b>Total balance</b></td><td></td></td><td></td><td></td><td></td><td><b>{{t_balance}}</b></td>
+            </tr>
+
+        </tbody>
+    </table>
+{% endblock %}
