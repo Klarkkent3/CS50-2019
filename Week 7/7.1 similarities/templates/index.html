@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <div class="col">
+        <form action="/compare" enctype="multipart/form-data" method="post">
+            <div class = "forms">
+                <input class = "import-file" name = "file1" type = "file">
+                Choose 1st file
+            </div>
+            <div class = "forms">
+                <input class = "import-file" name = "file2" type = "file">
+                Choose 2nd file
+            </div>
+            <div class = "forms">
+                <input class = "check-input" name = "algorithm" type = "radio" value = "lines">
+            Compare lines
+            </div>
+            <div class = "forms">
+                <input class = "check-input" name = "algorithm" type = "radio" value = "sentences">
+                Compare sentences
+            </div>
+            <div class = "forms">
+                <input class = "check-input" name = "algorithm" type = "radio" value = "substrings">
+                Compare substrings
+                <input class = "check-input" name = "lenght" type = "number" placeholder = "Enter lenght of substrings">
+            </div>
+            <button class = "com_button" type = "submit">Compare</button>
+        </form>
+    </div>
+
+{% endblock %}
